@@ -29,7 +29,7 @@ try:
     for line in sys.stdin:
         parsed_input = line.strip().split()
 
-        if len(parsed_input) < 7:
+        if len(parsed_input) < 9:
             continue
 
         try:
