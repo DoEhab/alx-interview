@@ -28,9 +28,8 @@ line_count = 0
 try:
     for line in sys.stdin:
         parsed_input = line.strip().split()
-
         if len(parsed_input) < 9:
-            continue
+            continue  # ensure GET ... is included
 
         try:
             ipaddress.ip_address(parsed_input[0])
@@ -49,6 +48,6 @@ try:
 
 except KeyboardInterrupt:
     print_stats(total_size, status_codes)
-    raise
+    sys.exit(0)  # no need to raise
 
 print_stats(total_size, status_codes)
