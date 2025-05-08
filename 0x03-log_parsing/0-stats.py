@@ -28,15 +28,14 @@ line_count = 0
 try:
     for line in sys.stdin:
         parsed_input = line.strip().split()
-        if len(parsed_input) < 9:
+
+        if len(parsed_input) < 7:
             continue
 
         try:
             ipaddress.ip_address(parsed_input[0])
             file_size = int(parsed_input[-1])
             status_code = parsed_input[-2]
-            if not status_code.isdigit():
-                continue
         except ValueError:
             continue
 
@@ -47,9 +46,11 @@ try:
         line_count += 1
         if line_count % 10 == 0:
             print_stats(total_size, status_codes)
+            total_size = 0
+            status_codes = defaultdict(int)
 
 except KeyboardInterrupt:
     print_stats(total_size, status_codes)
-    sys.exit(0)
+    raise
 
 print_stats(total_size, status_codes)
