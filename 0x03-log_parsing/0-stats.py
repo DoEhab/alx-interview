@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import ipaddress
 import sys
 from collections import defaultdict
 
@@ -32,6 +33,7 @@ try:
             continue
 
         try:
+            ipaddress.ip_address(parsed_input[0])
             file_size = int(parsed_input[-1])
             status_code = parsed_input[-2]
         except ValueError:
