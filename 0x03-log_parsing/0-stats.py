@@ -35,6 +35,8 @@ try:
             ipaddress.ip_address(parsed_input[0])
             file_size = int(parsed_input[-1])
             status_code = parsed_input[-2]
+            if not status_code.isdigit():
+                continue
         except ValueError:
             continue
 
