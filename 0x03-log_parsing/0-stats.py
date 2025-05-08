@@ -29,7 +29,7 @@ try:
     for line in sys.stdin:
         parsed_input = line.strip().split()
         if len(parsed_input) < 9:
-            continue  # ensure GET ... is included
+            continue
 
         try:
             ipaddress.ip_address(parsed_input[0])
@@ -48,6 +48,6 @@ try:
 
 except KeyboardInterrupt:
     print_stats(total_size, status_codes)
-    sys.exit(0)  # no need to raise
+    sys.exit(0)
 
 print_stats(total_size, status_codes)
