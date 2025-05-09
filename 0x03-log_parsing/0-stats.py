@@ -44,8 +44,6 @@ try:
         line_count += 1
         if line_count % 10 == 0:
             print_stats(total_size, status_codes)
-            total_size = 0
-            status_codes = defaultdict(int)
 
 except KeyboardInterrupt:
     print_stats(total_size, status_codes)
